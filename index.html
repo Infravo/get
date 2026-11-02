@@ -1,0 +1,9 @@
+#!/bin/sh
+# Infravo-Installer: lädt immer das neueste install.sh aus den GitHub-Releases und führt es aus.
+#   curl -fsSL https://get.infravo.de | sudo sh
+#   curl -fsSL https://get.infravo.de | sudo sh -s -- --domain infravo.firma.de
+set -eu
+
+URL="${INFRAVO_INSTALL_URL:-https://github.com/Infravo/Infravo/releases/latest/download/install.sh}"
+
+curl -fsSL "$URL" | sh -s -- "$@"
